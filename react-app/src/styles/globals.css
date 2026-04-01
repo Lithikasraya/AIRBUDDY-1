@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Glassmorphism Base Styles */
+.glass {
+  @apply bg-white/20 backdrop-blur-lg border border-white/20 shadow-xl;
+}
+
+.glass-dark {
+  @apply bg-gray-800/20 backdrop-blur-lg border border-gray-700/20 shadow-xl;
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* AQI Color Classes */
+.aqi-good { @apply text-green-500; }
+.aqi-moderate { @apply text-yellow-500; }
+.aqi-unhealthy-sensitive { @apply text-orange-500; }
+.aqi-unhealthy { @apply text-red-500; }
+.aqi-very-unhealthy { @apply text-purple-500; }
+.aqi-hazardous { @apply text-purple-900; }
+
+.aqi-bg-good { @apply bg-green-500/20 border-green-500/30; }
+.aqi-bg-moderate { @apply bg-yellow-500/20 border-yellow-500/30; }
+.aqi-bg-unhealthy-sensitive { @apply bg-orange-500/20 border-orange-500/30; }
+.aqi-bg-unhealthy { @apply bg-red-500/20 border-red-500/30; }
+.aqi-bg-very-unhealthy { @apply bg-purple-500/20 border-purple-500/30; }
+.aqi-bg-hazardous { @apply bg-purple-900/20 border-purple-900/30; }
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400/50;
+}
+
+/* Base Styles */
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  @apply antialiased;
+}
+
+/* Page Transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.3s ease-out;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.3s ease-in;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+}
+
+/* Bottom Navigation Active State */
+.nav-active {
+  @apply text-blue-500 dark:text-blue-400;
+}
+
+/* Form Input Styles */
+.input-glass {
+  @apply glass dark:bg-gray-800/20 dark:border-gray-700/20 rounded-2xl px-6 py-4 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all duration-300;
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold py-4 px-8 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
+}
+
+.btn-secondary {
+  @apply glass dark:bg-gray-800/20 dark:border-gray-700/20 text-gray-700 dark:text-gray-300 font-semibold py-4 px-8 rounded-2xl hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300;
+}
+
+/* Responsive Grid */
+.sensor-grid {
+  @apply grid grid-cols-2 gap-4;
+}
+
+@media (min-width: 640px) {
+  .sensor-grid {
+    @apply grid-cols-4 gap-6;
+  }
+}

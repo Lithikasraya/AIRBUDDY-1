@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #dbeafe, #f0f9ff);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Glass card container */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 16px;
+      padding: 20px;
+      width: 320px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #1e293b;
+    }
+
+    /* Headings */
+    .glass-card h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
+
+    /* Inputs */
+    .glass-card input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      background: rgba(255, 255, 255, 0.6);
+      color: #0f172a;
+    }
+
+    /* Buttons */
+    .glass-card .btn {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background: linear-gradient(135deg, #3b82f6, #60a5fa);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .glass-card .btn:hover {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+    }
+
+    /* Links */
+    .glass-card .link {
+      color: #2563eb;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    /* Dashboard styles */
+    .dashboard { padding:20px; font-family:sans-serif; }
+    .cards { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:15px 0; }
+    .card { background:rgba(255, 255, 255, 0.6); padding:10px; border-radius:8px; }
+    .aqi { font-weight:bold; margin:10px 0; }
+    .status { background:rgba(255, 224, 178, 0.6); padding:10px; border-radius:8px; }
+
+    /* Analytics styles */
+    .analytics { padding:20px; font-family:sans-serif; }
+    .row { display:flex; gap:10px; margin-bottom:15px; }
+    .box { flex:1; background:rgba(224, 247, 250, 0.6); padding:10px; border-radius:8px; text-align:center; }
+
+    /* Alerts styles */
+    .alerts { padding:20px; font-family:sans-serif; }
+    .alert { background:rgba(249, 249, 249, 0.6); padding:10px; border-radius:8px; margin-bottom:10px; }
+
+    /* Settings styles */
+    .settings { padding:20px; font-family:sans-serif; }
+    .section { margin-bottom:15px; }
+    .logout { background:#ff5252; color:#fff; padding:10px; border:none; border-radius:6px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="glass-card">
+    <h2>Sign In</h2>
+    <input type="text" placeholder="Enter Username">
+    <p>👉 Scan QR from website to login</p>
+    <button class="btn">📷 Scan QR Code</button>
+    <p>👉 Don't have an account? <span class="link">Sign Up</span></p>
+  </div>
+
+  <div class="glass-card">
+    <h2>San Francisco, CA</h2>
+    <div class="aqi">AQI: 58 (Moderate)</div>
+    <div class="cards">
+      <div class="card">🌡️ Temp: 24°C</div>
+      <div class="card">💧 Humidity: 65%</div>
+      <div class="card">PM2.5: 58 µg/m³</div>
+      <div class="card">PM10: 45 µg/m³</div>
+    </div>
+    <div class="status">Air quality is moderate. Sensitive groups should reduce prolonged exertion.</div>
+  </div>
+
+  <div class="glass-card">
+    <h2>Analytics</h2>
+    <div class="row">
+      <div class="box">Best Day: 35<br>Last Friday</div>
+      <div class="box">Worst Day: 87<br>Last Monday</div>
+    </div>
+    <h3>Today's Trend</h3>
+    <p>5 AM — 7 AM — 11 AM — 1 PM — 3 PM</p>
+    <h3>Monthly Average</h3>
+    <p>Jan | Feb | Mar | Apr</p>
+  </div>
+
+  <div class="glass-card">
+    <h2>Alerts</h2>
+    <div class="alert">Moderate Air Quality<br><small>PM2.5 levels elevated. 2 hours ago</small></div>
+    <div class="alert">Air Quality Improving<br><small>AQI decreased by 15 points. 5 hours ago</small></div>
+    <div class="alert">Good Air Quality<br><small>Perfect for outdoor activities! Yesterday</small></div>
+    <div class="alert">Unhealthy AQI Alert<br><small>AQI reached unhealthy levels. 2 days ago</small></div>
+  </div>
+
+  <div class="glass-card">
+    <h2>Settings</h2>
+    <div class="section">
+      <h3>John Doe</h3>
+      <p>john.doe@example.com</p>
+    </div>
+    <div class="section">
+      <h3>Account</h3>
+      <ul><li>Profile</li><li>Location</li><li>Notifications</li></ul>
+    </div>
+    <div class="section">
+      <h3>Preferences</h3>
+      <p>Theme: Light Mode</p>
+    </div>
+    <div class="section">
+      <h3>About</h3>
+      <ul><li>App Info</li><li>Help & Support</li></ul>
+    </div>
+    <button class="logout">Logout</button>
+  </div>
+</body>
+</html>
