@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
+import PWABottomNav from '../components/PWABottomNav';
 
 const Analytics = () => {
   // Daily AQI trend data
@@ -60,13 +61,14 @@ const Analytics = () => {
   };
 
   return (
-    <div className="min-h-screen pb-24 px-6 py-8">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-6xl mx-auto space-y-8"
-      >
+    <>
+      <div className="min-h-screen pb-24 px-6 py-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="max-w-6xl mx-auto space-y-8"
+        >
         {/* Header */}
         <motion.div variants={itemVariants} className="text-center">
           <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-2">
@@ -266,7 +268,9 @@ const Analytics = () => {
           </div>
         </motion.div>
       </motion.div>
-    </div>
+      </div>
+      <PWABottomNav />
+    </>
   );
 };
 

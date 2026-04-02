@@ -1,16 +1,67 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@layer base {
+  * {
+    @apply antialiased;
+  }
 
-/* Glassmorphism Base Styles */
-.glass {
-  @apply bg-white/20 backdrop-blur-lg border border-white/20 shadow-xl;
+  /* Light Mode */
+  body {
+    @apply bg-gray-50 text-gray-900;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Dark Mode */
+  .dark {
+    @apply bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950 text-white;
+    color-scheme: dark;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-blue-300 dark:bg-blue-400/30 rounded;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-blue-400 dark:bg-blue-400/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
-.glass-dark {
-  @apply bg-gray-800/20 backdrop-blur-lg border border-gray-700/20 shadow-xl;
+@layer components {
+  .glass-effect {
+    @apply backdrop-blur-lg bg-white/50 dark:bg-dark-800/50 border border-gray-200 dark:border-dark-700/50 rounded-3xl shadow-glass;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent;
+  }
+
+  .btn-glow {
+    @apply hover:shadow-glow transition-all duration-300;
+  }
+}
+
+/* Animation for floating elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /* Custom Animations */
@@ -122,7 +173,7 @@ body {
 
 /* Responsive Grid */
 .sensor-grid {
-  @apply grid grid-cols-1 gap-3 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4;
+  @apply grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4;
 }
 
 /* Mobile Optimizations */

@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
+import { useAuth } from '../contexts/AuthContext';
 import toast from 'react-hot-toast';
+import PWABottomNav from '../components/PWABottomNav';
 
-const Settings = ({ setIsAuthenticated }) => {
+const Settings = () => {
   const { isDark, toggleTheme } = useTheme();
+  const { logout } = useAuth();
+  const navigate = useNavigate();
   const [notifications, setNotifications] = useState(true);
   const [location, setLocation] = useState('San Francisco, CA');
   const [email, setEmail] = useState('user@example.com');
@@ -30,8 +35,9 @@ const Settings = ({ setIsAuthenticated }) => {
   };
 
   const handleLogout = () => {
-    setIsAuthenticated(false);
+    logout();
     toast.success('Logged out successfully');
+    navigate('/pwa/login');
   };
 
   const handleSaveSettings = () => {
@@ -47,21 +53,22 @@ const Settings = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <div className="min-h-screen pb-24 px-6 py-8">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-4xl mx-auto space-y-8"
-      >
-        {/* Header */}
-        <motion.div variants={itemVariants} className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-2">
-            Settings
-          </h1>
-          <p className="text-gray-600 dark:text-gray-400">
-            Manage your preferences and account
-          </p>
+    <>
+      <div className="min-h-screen pb-24 px-6 py-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="max-w-4xl mx-auto space-y-8"
+        >
+          {/* Header */}
+          <motion.div variants={itemVariants} className="text-center">
+            <h1 className="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-2">
+              Settings
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400">
+              Manage your preferences and account
+            </p>
         </motion.div>
 
         {/* User Profile Card */}
@@ -297,7 +304,9 @@ const Settings = ({ setIsAuthenticated }) => {
           </button>
         </motion.div>
       </motion.div>
-    </div>
+      </div>
+      <PWABottomNav />
+    </>
   );
 };
 

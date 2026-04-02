@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import Analytics from './pages/Analytics';
-import Alerts from './pages/Alerts';
-import Settings from './pages/Settings';
+import Login from './dashboard/Login';
+import Dashboard from './dashboard/Dashboard';
+import Analytics from './dashboard/Analytics';
+import Alerts from './dashboard/Alerts';
+import Settings from './dashboard/Settings';
 import BottomNav from './components/BottomNav';
 import { ThemeProvider } from './contexts/ThemeContext';
 

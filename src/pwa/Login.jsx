@@ -3,18 +3,20 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
 import QrScanner from 'react-qr-scanner';
+import { useAuth } from '../contexts/AuthContext';
 
-const Login = ({ setIsAuthenticated }) => {
+const Login = () => {
   const [username, setUsername] = useState('');
   const [showQRScanner, setShowQRScanner] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleLogin = (e) => {
     e.preventDefault();
     if (username.trim()) {
-      setIsAuthenticated(true);
+      login({ email: username, password: 'pwa-login' });
       toast.success('Welcome back!');
-      navigate('/dashboard');
+      navigate('/pwa/dashboard');
     } else {
       toast.error('Please enter your username');
     }
@@ -24,10 +26,10 @@ const Login = ({ setIsAuthenticated }) => {
     if (data) {
       // Simulate successful QR scan
       setShowQRScanner(false);
-      setUsername('User_' + Math.random().toString(36).substr(2, 9));
-      setIsAuthenticated(true);
+      const qrUsername = 'User_' + Math.random().toString(36).substr(2, 9);
+      login({ email: qrUsername, password: 'pwa-login' });
       toast.success('QR Code scanned successfully!');
-      navigate('/dashboard');
+      navigate('/pwa/dashboard');
     }
   };
 

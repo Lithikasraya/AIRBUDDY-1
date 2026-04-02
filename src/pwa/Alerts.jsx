@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
+import PWABottomNav from '../components/PWABottomNav';
 
 const Alerts = () => {
   const [alerts] = useState([
@@ -99,14 +100,15 @@ const Alerts = () => {
   };
 
   return (
-    <div className="min-h-screen pb-20 xs:pb-20 sm:pb-24 px-2 xs:px-3 sm:px-4 md:px-6 lg:px-8 py-3 xs:py-4 sm:py-6 md:py-8 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-7xl mx-auto w-full space-y-4 xs:space-y-6 sm:space-y-8"
-      >
-        {/* Header */}
+    <>
+      <div className="min-h-screen pb-20 xs:pb-20 sm:pb-24 px-2 xs:px-3 sm:px-4 md:px-6 lg:px-8 py-3 xs:py-4 sm:py-6 md:py-8 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="max-w-7xl mx-auto w-full space-y-4 xs:space-y-6 sm:space-y-8"
+        >
+          {/* Header */}
         <motion.div variants={itemVariants} className="text-center">
           <h1 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">
             Air Quality Alerts
@@ -262,7 +264,9 @@ const Alerts = () => {
           </div>
         </motion.div>
       </motion.div>
-    </div>
+      </div>
+      <PWABottomNav />
+    </>
   );
 };
 

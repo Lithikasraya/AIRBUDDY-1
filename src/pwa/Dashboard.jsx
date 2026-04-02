@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AQIGauge from '../components/AQIGauge';
 import Card from '../components/Card';
+import PWABottomNav from '../components/PWABottomNav';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
 
 const Dashboard = () => {
@@ -80,7 +81,8 @@ const Dashboard = () => {
   const currentStatus = getAQIStatus(sensorData.aqi);
 
   return (
-    <div className="min-h-screen pb-20 xs:pb-20 sm:pb-24 px-2 xs:px-3 sm:px-4 md:px-6 lg:px-8 py-3 xs:py-4 sm:py-6 md:py-8 bg-gradient-to-br from-blue-50 via-cyan-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 overflow-x-hidden">
+    <>
+      <div className="min-h-screen pb-20 xs:pb-20 sm:pb-24 px-2 xs:px-3 sm:px-4 md:px-6 lg:px-8 py-3 xs:py-4 sm:py-6 md:py-8 bg-gradient-to-br from-blue-50 via-cyan-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 overflow-x-hidden">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -346,7 +348,9 @@ const Dashboard = () => {
           </div>
         </motion.div>
       </motion.div>
-    </div>
+      </div>
+      <PWABottomNav />
+    </>
   );
 };
 
